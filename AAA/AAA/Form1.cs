@@ -19,6 +19,7 @@ namespace AAA
         int RightMove = 5;
         int UpMove = 5;
         int DownMove = 5;
+        int bulletSpeed = 0;
         public Form1()
         {
             InitializeComponent();
@@ -47,50 +48,48 @@ namespace AAA
         {
             if (e.KeyCode == Keys.Up)
             {
+                Bullet.Top += -15;
                 Player.Top += -15;
             }
             else if (e.KeyCode == Keys.Down)
             {
+                Bullet.Top +=  15;
                 Player.Top += 15;
             }
             else if (e.KeyCode == Keys.Left)
             {
+                Bullet.Left += -15;
                 Player.Left += -15;
             }
             else if (e.KeyCode == Keys.Right)
             {
+                Bullet.Left +=  15;
                 Player.Left += 15;
             }
             else if (e.KeyCode == Keys.Space)
             {
-               
-                PictureBox pictureBox = new PictureBox() { Left = Player.Left, Top = Player.Top};
-                pictureBox.Image = AAA.Properties.Resources.AAB;s
-
-
+                bulletSpeed = 5;
 
             }                
         }
 
         private void Form1_KeyUp(object sender, KeyEventArgs e)
         {
-            if (e.KeyCode == Keys.Up)
-            {
-                Player.Top += -15;
-            }
-            else if (e.KeyCode == Keys.Down)
-            {
-                Player.Top += 15;
-            }
-            else if (e.KeyCode == Keys.Left)
-            {
-                Player.Left += -15;
-            }
-            else if (e.KeyCode == Keys.Right)
-            {
-                Player.Left += 15;
-            }
         }
 
+        private void Player_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void bulletTimer_Tick(object sender, EventArgs e)
+        {
+            Bullet.Top += bulletSpeed;
+        }
     }
 }
