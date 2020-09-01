@@ -27,6 +27,12 @@ private :
 public : 
 	T		GetData()		{ return data; }
 	void	SetData(T arg)  { data = arg; }
+
+	// 3. 템플릿 연산자
+	T operator > (T& arg)
+	{
+		return (data > arg) ? data : arg;
+	}
 };
 
 void main()
@@ -42,5 +48,8 @@ void main()
 	B.SetData('A');
 	SampleClass<float> C;
 	C.SetData(1.1234);
-	cout << "A : " << A.GetData() << endl << "B : " << B.GetData() << endl << "C : " << C.GetData();
+	cout << "A : " << A.GetData() << endl << "B : " << B.GetData() << endl << "C : " << C.GetData() << endl;
+
+	int test = 20;
+	cout << "A와 test중 더 큰값은? " << (A > test) << endl;
 }
