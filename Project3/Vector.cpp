@@ -33,6 +33,17 @@
 #include <vector>
 using namespace std;
 
+class SampleClass
+{
+private:
+	int key;
+public :
+	SampleClass(int value) { key = value; }
+	int GetKey()		   { return key; }
+	void SetKey(int value) { key = value; }	
+
+};
+
 void main()
 {
 	vector<int> v(5);
@@ -52,11 +63,11 @@ void main()
 	cout << "v1 : " << v1[0] << endl << "v2 : " << v1.at(1) << endl << "v1 : " << v1.front() << endl <<  "v5 : " << v1.back() << endl;
 
 	vector<int> v2;
-	v1.push_back(10);
-	v1.push_back(20);
-	v1.push_back(30);
-	v1.push_back(40);
-	v1.push_back(50);
+	v2.push_back(10);
+	v2.push_back(20);
+	v2.push_back(30);
+	v2.push_back(40);
+	v2.push_back(50);
 
 	if (v1 == v2)
 	{
@@ -66,4 +77,30 @@ void main()
 	{
 		cout << "v1, v2는 같지않습니다." << endl;
 	}
+
+	vector<int> v3;
+	v3.push_back(30);
+	v3.push_back(50);
+
+	v1.swap(v3);
+
+	vector<int>::iterator iter;
+
+	for (iter = v1.begin(); iter != v1.end(); iter++)
+	{
+		cout << *iter << endl;
+	}
+
+	vector<SampleClass> v4;
+	v4.push_back(SampleClass(20));
+	v4.push_back(SampleClass(40));
+	v4.push_back(SampleClass(30));
+
+	vector<SampleClass>::iterator iter2;
+
+	for (iter2 = v4.begin(); iter2 != v4.end(); iter2++)
+	{
+		cout << iter2->GetKey() << endl;
+	}
+
 }
