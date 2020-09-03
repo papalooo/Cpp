@@ -35,5 +35,35 @@ using namespace std;
 
 void main()
 {
+	vector<int> v(5);
+	v.pop_back();
+	cout << "v size : " << v.size() << endl << "v capacity : " << v.capacity() << endl;
 
+	vector<int>().swap(v);	// 임의 벡터와 교환
+	cout << "v size : " << v.size() << endl << "v capacity : " << v.capacity() << endl;
+
+	vector<int> v1;
+	v1.push_back(10);
+	v1.push_back(20);
+	v1.push_back(30);
+	v1.push_back(40);
+	v1.push_back(50);
+
+	cout << "v1 : " << v1[0] << endl << "v2 : " << v1.at(1) << endl << "v1 : " << v1.front() << endl <<  "v5 : " << v1.back() << endl;
+
+	vector<int> v2;
+	v1.push_back(10);
+	v1.push_back(20);
+	v1.push_back(30);
+	v1.push_back(40);
+	v1.push_back(50);
+
+	if (v1 == v2)
+	{
+		cout << "v1, v2 는 같습니다" << endl;
+	}
+	else
+	{
+		cout << "v1, v2는 같지않습니다." << endl;
+	}
 }
