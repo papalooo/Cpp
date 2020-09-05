@@ -29,7 +29,6 @@ void main()
 	m[11] = 110;
 	m[12] = 120;
 	m[13] = 130;
-
 	map<int, int>::iterator iter;
 	for (iter = m.begin(); iter != m.end(); iter++)
 	{
@@ -38,6 +37,26 @@ void main()
 
 	pair<map<int, int>::iterator, bool > pr;
 
+
 	pr = m.insert(pair<int, int>(4, 500));
+
+	if (pr.second)
+		cout << pr.first->first << ", " << pr.first->second << "입력 성공" << endl;
+	else
+		cout << "key 4가 이미 m 안에 존재합니다. (중복안됨) " << endl;
+
+
+	pr = m.insert(pair<int, int>(4, 300));
+
+	if (pr.second)
+		cout << pr.first->first << ", " << pr.first->second << "입력 성공" << endl;
+	else
+		cout << "key 4가 이미 m 안에 존재합니다. (중복안됨) " << endl;
+
+
+	for (iter = m.begin(); iter != m.end(); iter++)
+	{
+		cout << "(" << (*iter).first << ", " << (*iter).second << ")" << endl;
+	}
 
 }
